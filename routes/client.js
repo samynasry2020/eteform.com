@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-// Client dashboard
+// Client Dashboard
 router.get('/', (req, res) => {
+  if (!req.user) {
+    return res.redirect('/users/login');
+  }
   res.render('client_dashboard', { user: req.user });
 });
-
-// Other client-related routes can be added here
 
 module.exports = router;

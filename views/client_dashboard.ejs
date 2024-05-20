@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Client Area - UK Company Formation</title>
+  <title>Dashboard - UK Company Formation</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="/css/style.css">
@@ -10,15 +10,15 @@
   <%- include('navbar') %>
 
   <div class="container mt-5">
-    <h1>Welcome,</h1>
+    <h1>Welcome, <%= user.name %></h1>
     <p>This is your dashboard. Here you can manage your invoices, billing, company, profile, and settings.</p>
 
     <ul class="list-group">
-      <li class="list-group-item"><a href="/invoices">Invoices</a></li>
-      <li class="list-group-item"><a href="/billing">Billing</a></li>
-      <li class="list-group-item"><a href="/company-management">Company Management</a></li>
-      <li class="list-group-item"><a href="/profile">Profile</a></li>
-      <li class="list-group-item"><a href="/settings">Settings</a></li>
+      <li class="list-group-item"><a href="#">Invoices</a></li>
+      <li class="list-group-item"><a href="#">Billing</a></li>
+      <li class="list-group-item"><a href="#">Company Management</a></li>
+      <li class="list-group-item"><a href="#">Profile</a></li>
+      <li class="list-group-item"><a href="#">Settings</a></li>
     </ul>
   </div>
 
