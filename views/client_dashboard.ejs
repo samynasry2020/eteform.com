@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Client Dashboard - UK Company Formation</title>
+  <link rel="stylesheet" href="https://stackpath.amazonaws.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include('navbar') %>
+
+  <div class="container mt-5">
+    <h1>Welcome, <%= user.name %></h1>
+    <p>This is your dashboard. Here you can manage your invoices, billing, company, profile, and settings.</p>
+    <ul class="list-group">
+      <li class="list-group-item"><a href="#">Invoices</a></li>
+      <li class="list-group-item"><a href="#">Billing</a></li>
+      <li class="list-group-item"><a href="#">Company Management</a></li>
+      <li class="list-group-item"><a href="#">Profile</a></li>
+      <li class="list-group-item"><a href="#">Settings</a></li>
+    </ul>
+  </div>
+
+  <%- include('footer') %>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.amazonaws.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

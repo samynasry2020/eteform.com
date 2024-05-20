@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register - UK Company Formation</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include('navbar') %>
+
+  <div class="container mt-5">
+    <h1>Register</h1>
+    <form action="/users/register" method="POST">
+      <input type="hidden" name="plan" value="<%= plan %>">
+      
+      <div class="form-group">
+        <label for="owners">How many owners:</label>
+        <select class="form-control" id="owners" name="owners" required>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+
+      <div id="owner-details"></div>
+
+      <div class="form-group">
+        <label for="activities">Company Activities (max 4):</label>
+        <input type="text" class="form-control" id="activities" name="activities" placeholder="Enter activities separated by commas" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password2">Confirm Password:</label>
+        <input type="password" class="form-control" id="password2" name="password2" required>
+      </div>
+
+      <div class="form-group">
+        <label for="payment">Payment Method:</label>
+        <select class="form-control" id="payment" name="payment" required>
+          <option value="credit-card">Credit Card</option>
+          <option value="paypal">PayPal</option>
+          <option value="bank-transfer">Bank Transfer</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+  </div>
+
+  <%- include('footer') %>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script>
+    document.getElementById('owners').addEventListener('change', function() {
+      const ownerCount = parseInt(this.value);
+      const ownerDetailsDiv = document.getElementById('owner-details');
+      ownerDetailsDiv.innerHTML = '';
+      for (let i = 1; i <= ownerCount; i++) {
+        ownerDetailsDiv.innerHTML += `
+          <div class="form-group">
+            <label for="owner${i}">Owner ${i} Full Name:</label>
+            <input type="text" class="form-control" id="owner${i}" name="owner${i}" required>
+          </div>
+          <div class="form-group">
+            <label for="owner${i}Percentage">Owner ${i} Percentage:</label>
+            <input type="number" class="form-control" id="owner${i}Percentage" name="owner${i}Percentage" required>
+          </div>
+        `;
+      }
+    });
+  </script>
+</body>
+</html>
